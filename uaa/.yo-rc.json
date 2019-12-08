@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.perfiltic.onlineshop",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.5.1",
+    "applicationType": "uaa",
+    "baseName": "uaa",
+    "packageName": "com.perfiltic.onlineshop",
+    "packageFolder": "com/perfiltic/onlineshop",
+    "serverPort": "9999",
+    "authenticationType": "uaa",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NjhkNjRiNTE0NmZjMTc3YzE1MDc5NzNlNDUxZGY5YmViYjM3ZDg0NGI0ZDA1ZmNiNjQwOWFjODg5ZDEyZjljMjRhMzkxY2I2Mzg0ZDMzMDMwMjQyMTJhOWY2Mzg3Y2UwOTA0YmZjZDg1NGZlZjhhZWIyMTI1YmUxNTQ1OWFlMzE=",
+    "embeddableLaunchScript": false,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "es"
+    ],
+    "blueprints": [],
+    "skipClient": true
+  }
+}
