@@ -1,0 +1,33 @@
+{
+    "name": "Customer",
+    "fields": [
+        {
+            "fieldName": "firstName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telephone",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20191208230719",
+    "entityTableName": "customer",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "microservicio1",
+    "applications": "*",
+    "microserviceName": "microservicio1"
+}

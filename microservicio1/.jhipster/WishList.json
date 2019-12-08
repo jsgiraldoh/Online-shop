@@ -1,0 +1,28 @@
+{
+    "name": "WishList",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "restricted",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20191208230721",
+    "entityTableName": "wish_list",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "microservicio1",
+    "applications": "*",
+    "microserviceName": "microservicio1"
+}

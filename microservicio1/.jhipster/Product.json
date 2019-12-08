@@ -1,0 +1,44 @@
+{
+    "name": "Product",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "keywords",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rating",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dateAdded",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateModified",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20191208230718",
+    "entityTableName": "product",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "microservicio1",
+    "applications": "*",
+    "microserviceName": "microservicio1"
+}
