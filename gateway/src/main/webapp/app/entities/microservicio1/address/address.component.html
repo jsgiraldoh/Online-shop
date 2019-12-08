@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.microservicio1Address.home.title">Addresses</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-address" [routerLink]="['/address/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="gatewayApp.microservicio1Address.home.createLabel">
+            Create a new Address
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="addresses?.length === 0">
+        <span jhiTranslate="gatewayApp.microservicio1Address.home.notFound">No addresses found</span>
+    </div>
+    <div class="table-responsive" *ngIf="addresses?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="address1"><span jhiTranslate="gatewayApp.microservicio1Address.address1">Address 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="address2"><span jhiTranslate="gatewayApp.microservicio1Address.address2">Address 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="city"><span jhiTranslate="gatewayApp.microservicio1Address.city">City</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="postcode"><span jhiTranslate="gatewayApp.microservicio1Address.postcode">Postcode</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="country"><span jhiTranslate="gatewayApp.microservicio1Address.country">Country</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="customer.id"><span jhiTranslate="gatewayApp.microservicio1Address.customer">Customer</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let address of addresses ;trackBy: trackId">
+                <td><a [routerLink]="['/address', address.id, 'view' ]">{{address.id}}</a></td>
+                <td>{{address.address1}}</td>
+                <td>{{address.address2}}</td>
+                <td>{{address.city}}</td>
+                <td>{{address.postcode}}</td>
+                <td>{{address.country}}</td>
+                <td>
+                    <div *ngIf="address.customer">
+                        <a [routerLink]="['/customer', address.customer?.id, 'view' ]" >{{address.customer?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/address', address.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/address', address.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(address)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="addresses?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

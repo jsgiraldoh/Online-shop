@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "microservicio1WishList": {
+      "home": {
+        "title": "Wish Lists",
+        "createLabel": "Crear nuevo Wish List",
+        "createOrEditLabel": "Crear o editar Wish List",
+        "notFound": "Ningún Wish Lists encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Wish List {{ id }}?"
+      },
+      "detail": {
+        "title": "Wish List"
+      },
+      "title": "Title",
+      "restricted": "Restricted",
+      "product": "Product",
+      "customer": "Customer"
+    }
+  },
+  "microservicio1App": {
+    "microservicio1WishList": {
+      "created": "Un nuevo Wish List ha sido creado con el identificador {{ param }}",
+      "updated": "Un Wish List ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Wish List ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

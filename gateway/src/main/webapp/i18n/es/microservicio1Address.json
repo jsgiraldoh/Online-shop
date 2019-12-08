@@ -1,0 +1,31 @@
+{
+  "gatewayApp": {
+    "microservicio1Address": {
+      "home": {
+        "title": "Addresses",
+        "createLabel": "Crear nuevo Address",
+        "createOrEditLabel": "Crear o editar Address",
+        "notFound": "Ningún Addresses encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Address {{ id }}?"
+      },
+      "detail": {
+        "title": "Address"
+      },
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "City",
+      "postcode": "Postcode",
+      "country": "Country",
+      "customer": "Customer"
+    }
+  },
+  "microservicio1App": {
+    "microservicio1Address": {
+      "created": "Un nuevo Address ha sido creado con el identificador {{ param }}",
+      "updated": "Un Address ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Address ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "gatewayApp": {
+    "microservicio1Customer": {
+      "home": {
+        "title": "Customers",
+        "createLabel": "Crear nuevo Customer",
+        "createOrEditLabel": "Crear o editar Customer",
+        "notFound": "Ningún Customers encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Customer {{ id }}?"
+      },
+      "detail": {
+        "title": "Customer"
+      },
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "telephone": "Telephone",
+      "wishList": "Wish List",
+      "address": "Address"
+    }
+  },
+  "microservicio1App": {
+    "microservicio1Customer": {
+      "created": "Un nuevo Customer ha sido creado con el identificador {{ param }}",
+      "updated": "Un Customer ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Customer ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

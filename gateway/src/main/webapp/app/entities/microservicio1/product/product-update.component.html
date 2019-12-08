@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-product-heading" jhiTranslate="gatewayApp.microservicio1Product.home.createOrEditLabel">Create or edit a Product</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.microservicio1Product.title" for="field_title">Title</label>
+                    <input type="text" class="form-control" name="title" id="field_title"
+                           formControlName="title"/>
+                    <div *ngIf="editForm.get('title').invalid && (editForm.get('title').dirty || editForm.get('title').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('title').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.microservicio1Product.keywords" for="field_keywords">Keywords</label>
+                    <input type="text" class="form-control" name="keywords" id="field_keywords"
+                           formControlName="keywords"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.microservicio1Product.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.microservicio1Product.rating" for="field_rating">Rating</label>
+                    <input type="number" class="form-control" name="rating" id="field_rating"
+                           formControlName="rating"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.microservicio1Product.dateAdded" for="field_dateAdded">Date Added</label>
+                    <div class="input-group">
+                        <input id="field_dateAdded" type="text" class="form-control" name="dateAdded" ngbDatepicker  #dateAddedDp="ngbDatepicker" formControlName="dateAdded"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateAddedDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.microservicio1Product.dateModified" for="field_dateModified">Date Modified</label>
+                    <div class="input-group">
+                        <input id="field_dateModified" type="text" class="form-control" name="dateModified" ngbDatepicker  #dateModifiedDp="ngbDatepicker" formControlName="dateModified"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateModifiedDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.microservicio1Product.wishList" for="field_wishList">Wish List</label>
+                    <select class="form-control" id="field_wishList" name="wishList" formControlName="wishList">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="wishListOption.id === editForm.get('wishList').value?.id ? editForm.get('wishList').value : wishListOption" *ngFor="let wishListOption of wishlists; trackBy: trackWishListById">{{wishListOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
