@@ -58,7 +58,6 @@ relationship ManyToMany {
 }
 
 // Set pagination options
-<<<<<<< HEAD
 paginate Customer, Product, Category, Address with pagination
 =======
 paginate Customer, Product, Category, Address, with pagination

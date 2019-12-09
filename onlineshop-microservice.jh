@@ -46,8 +46,3 @@ paginate Customer, Product, Category, Address with pagination
 service all with serviceImpl
 
 microservice * with microservicio1
-<<<<<<< HEAD
-
-//skipServer Category, Product, WishList, Customer, Address
-=======
->>>>>>> 040a7204f9fc114d92028730ad87b2d29bf2cb42
