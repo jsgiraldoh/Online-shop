@@ -1,0 +1,41 @@
+version: '3.5'
+
+services:
+  sonarqube:
+    image: sonarqube:latest
+    ports:
+      - "9000:9000"
+    networks:
+      - sonarnet
+    environment:
+      - sonar.jdbc.url=jdbc:postgresql://db:5432/sonar
+    volumes:
+      - $PWD/sonarqube_conf:/opt/sonarqube/conf
+      - $PWD/sonarqube_data:/opt/sonarqube/data
+      - $PWD/sonarqube_extensions:/opt/sonarqube/extensions
+
+  db:
+    image: postgres
+    networks:
+      - sonarnet
+    environment:
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=sonar
+    volumes:
+      - $PWD/postgresql:/var/lib/postgresql
+      - $PWD/postgresql_data:/var/lib/postgresql/data
+
+  jenkins:
+    image: 'jenkins/jenkins:lts'
+    restart: always
+    ports:
+      - '8090:8080'
+      - '50000:50000'
+    networks:
+      - sonarnet
+    volumes:
+      - $PWD/jenkins_home:/var/jenkins_home
+
+networks:
+  sonarnet:
+    driver: bridge
