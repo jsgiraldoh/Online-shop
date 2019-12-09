@@ -6,7 +6,7 @@ Para poder ejecutar el comando "docker-compose up -d", son necesarios los siguie
 
 2) ejecutar el comando 
 
-./mvnw package -Pprod verify jib:dockerBuild
+	./mvnw package -Pprod verify jib:dockerBuild
 
 para crear la imagen de docker del microservicio uaa
 
@@ -14,7 +14,7 @@ para crear la imagen de docker del microservicio uaa
 
 4) ejecutar el comando
 
-./mvnw package -Pprod verify jib:dockerBuild
+	./mvnw package -Pprod verify jib:dockerBuild
 
 para crear la imagen de docker del microservicio gateway
 
@@ -22,12 +22,12 @@ para crear la imagen de docker del microservicio gateway
 
 6) ejecutar el comando
 
-./mvnw package -Pprod verify jib:dockerBuild
+	./mvnw package -Pprod verify jib:dockerBuild
 
 para crear la imagen de docker del microservicio microservicio1
 
 7) para finalizar cuando estas imagenes sean creadas ejecutar el comando
 
-docker-compose up -d 
+	docker-compose up -d 
 
 8) Esperar a que todos los servicios esten activos y relacionados al registry
