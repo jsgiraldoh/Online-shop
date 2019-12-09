@@ -1,37 +1,29 @@
 version: '3.5'
 services:
   sonarqube:
-    image: sonarqube:lts
-    container_name: 'sonarqube'
-    restart: always
-    depends_on:
-      - sonarmysql
+    image: sonarqube
     ports:
-      - '9000:9000'
+      - "9000:9000"
     networks:
       - sonarnet
     environment:
-      - SONARQUBE_JDBC_USERNAME=sonar
-      - SONARQUBE_JDBC_PASSWORD=sonar
-      - SONARQUBE_JDBC_URL=jdbc:mysql://sonarmysql:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance&useSSL=false
+      - sonar.jdbc.url=jdbc:postgresql://db:5432/sonar
     volumes:
       - $PWD/sonarqube_conf:/opt/sonarqube/conf
       - $PWD/sonarqube_data:/opt/sonarqube/data
       - $PWD/sonarqube_extensions:/opt/sonarqube/extensions
 
-  sonarmysql:
-    image: mysql:5.7
-    container_name: 'sonarmysql'
-    restart: always
+  db:
+    image: postgres
     networks:
       - sonarnet
     environment:
-      MYSQL_ROOT_PASSWORD: sonar
-      MYSQL_DATABASE: sonar
-      MYSQL_USER: sonar
-      MYSQL_PASSWORD: sonar
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=sonar
     volumes:
-      - $PWD/sonarbd_data:/var/lib/mysql
+      - $PWD/postgresql:/var/lib/postgresql
+      # This needs explicit mapping due to https://github.com/docker-library/postgres/blob/4e48e3228a30763913ece952c611e5e9b95c8759/Dockerfile.template#L52
+      - $PWD/postgresql_data:/var/lib/postgresql/data
 
 networks:
   sonarnet:

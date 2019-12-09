@@ -2,5 +2,6 @@ environment/jenkins_home
 environment/sonarqube_conf
 environment/sonarqube_data
 environment/sonarqube_extensions
-environment/sonarbd_data
+environment/postgresql
+environment/postgresql_data
 
