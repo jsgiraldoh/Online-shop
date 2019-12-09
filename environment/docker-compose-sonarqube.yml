@@ -15,9 +15,9 @@ services:
       - SONARQUBE_JDBC_PASSWORD=sonar
       - SONARQUBE_JDBC_URL=jdbc:mysql://sonarmysql:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance&useSSL=false
     volumes:
-      - $pwd/sonarqube_conf:/opt/sonarqube/conf
-      - $pwd/sonarqube_data:/opt/sonarqube/data
-      - $pwd/sonarqube_extensions:/opt/sonarqube/extensions
+      - $PWD/sonarqube_conf:/opt/sonarqube/conf
+      - $PWD/sonarqube_data:/opt/sonarqube/data
+      - $PWD/sonarqube_extensions:/opt/sonarqube/extensions
 
   sonarmysql:
     image: mysql:5.7
@@ -31,7 +31,7 @@ services:
       MYSQL_USER: sonar
       MYSQL_PASSWORD: sonar
     volumes:
-      - $pwd/sonarbd_data:/var/lib/mysql
+      - $PWD/sonarbd_data:/var/lib/mysql
 
 networks:
   sonarnet:

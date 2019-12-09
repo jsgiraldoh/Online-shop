@@ -9,5 +9,10 @@ services:
       - '8090:8080'
       - '50000:50000'
     volumes:
-      - $pwd/jenkins_home:/var/jenkins_home
+      - $PWD/jenkins_home:/var/jenkins_home
+    networks:
+      - sonarnet
 
+networks:
+  sonarnet:
+    driver: bridge

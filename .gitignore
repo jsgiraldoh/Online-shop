@@ -1,6 +1,6 @@
-/jenkins_home
-/sonarqube_conf
-/sonarqube_data
-/sonarqube_extensions
-/sonarbd_data
+environment/jenkins_home
+environment/sonarqube_conf
+environment/sonarqube_data
+environment/sonarqube_extensions
+environment/sonarbd_data
 
