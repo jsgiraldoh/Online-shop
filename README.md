@@ -1,6 +1,6 @@
 # Online-shop
 
-Para poder ejecutar el comando "docker-compose up -d", son necesarios los siguientes requerimientos"
+Para poder ejecutar el comando "docker-compose up -d", son necesarios los siguientes requerimientos:
 
 1) desplazarse hacia la carpeta /uaa
 
